@@ -1,4 +1,2 @@
 # GUI
-hello this is tyler here welcome
-
-I LOVE GUI AND MEMES
+Here are all of the source files for my website.  
