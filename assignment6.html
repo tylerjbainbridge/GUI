@@ -33,10 +33,10 @@ updated by TJB on October 19th, October 19th, 2015 at 7:45 PM
 <div id="content">
     <div id="subcontent">
         <form id="numbers" action="form_action.asp">
-            First Number: <input type="number" name="number1" value="4"><br>
-            Second Number: <input type="number" name="number2" value="3"><br>
-            Third Number: <input type="number" name="number3" value="8"><br>
-            Fourth Number: <input type="number" name="number4" value="9"><br>
+            First Number: <input type="number" name="number1"><br>
+            Second Number: <input type="number" name="number2"><br>
+            Third Number: <input type="number" name="number3"><br>
+            Fourth Number: <input type="number" name="number4"><br>
         </form>
 
         <button onclick="myFunction()" name="submit">Display</button>
@@ -55,7 +55,7 @@ updated by TJB on October 19th, October 19th, 2015 at 7:45 PM
         var j;
         var string = "";
 
-        if (!isNaN(num1) & !isNaN(num2) & !isNaN(num3) & !isNaN(num4)) {
+        if (!isNaN(num1) & !isNaN(num2) & !isNaN(num3) & !isNaN(num4) & num1.length != 0 & num2.length != 0 & num3.length != 0 & num4.length != 0) {
             var array = [num1, num2, num3, num4];
             string = string + "<br>";
             string = string + "<table>"; //opening the table
@@ -83,8 +83,8 @@ updated by TJB on October 19th, October 19th, 2015 at 7:45 PM
             document.getElementById("result").innerHTML = string; //puts the content between the div tags
 
         } else {
-            var string3 = "Please enter numerical inputs only.";
-            document.getElementById('result').innerHTML = string3;
+            string = "<br>Whoops! Looks like you didn't enter information correctly! Try entering four numbers.";
+            document.getElementById('result').innerHTML = string    ;
 
 
         }
