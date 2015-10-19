@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*
 Tyler J. Bainbridge
 tyler_bainbridge@student.uml.edu
@@ -10,7 +11,6 @@ Copyright (c) 2015 by Tyler J Bainbridge
 updated by TJB on September 17, September 17, 2015 at 7:45 PM
 */
 
-@charset "utf-8";
 
 body{
 	background-color: #FFFFFF;
@@ -43,9 +43,19 @@ h1{
 	color: #1F1F1F;/*dark grey*/
 }
 
+h1 a{
+	color: #1F1F1F;
+	text-decoration: none;
+}
+
 h2{
 	font-family: 'Raleway-Bold', sans-serif;
 	color: #1F1F1F;/*dark grey*/
+}
+/*no decoration*/
+li a{
+	color: #1F1F1F; /*dark grey*/
+	text-decoration: none;
 }
 
 /*
@@ -76,6 +86,7 @@ centering and stretching the black and white image across the width of the home 
 #image img{
     width: 100%;
 }
+
 
 /*
 displaying the text over the image
@@ -141,14 +152,27 @@ the code below makes the menu display in a line rather than one on top of anothe
 	width: auto;
 	height: 800px;
 	padding-top: 100px;
+	margin: auto;
+	padding: 10px;
 }
 
-/*containter for displaying the under construction section of the projects page*/
-#projcontent{
+/*code for displaying the text centered on the screen in the middle.*/
+#projectholder{
+	margin: auto;
+	width: auto;
+	padding: 10px;
+	height: 300px;
+}
+#projectcontent{
 	display: inline-block;
-	width: 100%;
-	height: 700px;
+	height: 800px;
 	padding-top: 100px;
+}
+#projecttext2{
+	float: inherit;
+}
+#projecttext1{
+	float: inherit;
 }
 
 /*code below adjusts the two blocks of content to be side by side in the center of the about page*/

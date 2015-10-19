@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+Tyler J. Bainbridge
+tyler_bainbridge@student.uml.edu
+91.461 GUI Programming I
+Assignment 5: Formatting Dynamic Text
+
+Tyler Bainbridge, UMass Lowell Computer Science, tbainbr@cs.uml.edu
+Copyright (c) 2015 by Tyler J Bainbridge
+updated by TJB on October 5
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/assignment5.css">
+    <!--
+      load jQuery library from the Google Content Delivery Network (CDN)
+      see http://encosia.com/3-reasons-why-you-should-let-google-host-jquery-for-you/
+      however, note that you obviously must be online for this to work
+      alternatively, you can download jQuery and store it locally from
+         http://jquery.com/download/
+    -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- load the JSON file containing your text -->
+    <script type="text/javascript">
+        // this function will run after the body has been loaded
+        jQuery(document).ready( function() {
+            jQuery.get( "onion.json", function( data ) {
+                placeContent( data ) ;  // construct output from the data read
+            }, "json" );  // be sure to include this third parameter for weblab.cs.uml.edu
+        });
+    </script>
+    <!-- script to place JSON text in the placeholder (div#content) on the page -->
+    <script type="text/javascript">
+        // N.B.  This version *does* apply the CSS.
+        function placeContent( story ) {
+            var strContent = "";
+
+            // create dynamic content from JSON
+            strContent += "<div id = 'text'>"
+            strContent += "<h1 class='title'>" + story.title + "</h1>" ;
+            strContent += "<div id = 'image'>"
+            strContent += "<img src=" + story.image + ">"
+            strContent += "<h2 class='author'>by " + story.author + "</h2>" ;
+            strContent += "<h3 class='location'>" + story.location + "</h3>" ;
+            strContent += "<h3 class='date'>" + story.date + "</h3>" ;
+            // loop through all the paragraphs and sentences
+            for ( var para = 0 ; para < story.text.paragraphs.length ; para++ ) {
+                strContent += "<p>" ;
+                for ( var sent = 0 ; sent < story.text.paragraphs[para].length ; sent++ ) {
+                    strContent += story.text.paragraphs[para][sent];
+                }
+                strContent += "</p>" ;
+            }
+            strContent += "</div>"
+            // place dynamic content on page
+            // document.getElementById( "content" ).innerHTML = strContent ;
+            $("#content").html( strContent ) ;
+        }
+    </script>
+    <title>Assignment 5</title>
+</head>
+<body>
+    <div id="name"> <!--the header in the left hand corner of the website-->
+        Tyler Bainbridge
+    </div>
+    <div id="header"><!--the container which holds the menu-->
+        <div id="menu"><!--holding the links to various areas of the website-->
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href=projects.html>Projects</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="http://www.tylerbainbridge.com/">Photography</a></li>
+                <li><a href=" https://github.com/tylerjbainbridge/">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content"></div>
+</body>
+</html>
