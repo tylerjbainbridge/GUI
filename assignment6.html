@@ -12,8 +12,58 @@ updated by TJB on October 19th, October 19th, 2015 at 3:53 PM
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/assignment6.css">
+    <script src="javascript/scripts.js" type="text/javascript"></script>
     <meta charset="UTF-8">
     <title>javascript stuff</title>
+    <!-- Load jQuery and jQuery-Validate scripts -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="js/jquery-validate.js"></script>
+    <script>
+        // When the document is ready
+        $(document).ready(function () {
+
+            //validation rules
+            $("#numbers").validate({
+                rules: {
+                    "number1": {
+                        required: true,
+                        number: true
+                    },
+                    "number2": {
+                        required: true,
+                        number: true
+                    },
+                    "number3": {
+                        required: true,
+                        number: true
+                    },
+                    "number4": {
+                        required: true,
+                        number: true
+                    }
+                },
+                messages: {
+                    "number1": {
+                        required: "You must enter your full name",
+                        number : "Phone number must contain digits only"
+                    },
+                    "number2": {
+                        required: "You must enter your phone number",
+                        number : "Phone number must contain digits only"
+                    },
+                    "number3": {
+                        required: "You must enter your phone number",
+                        number : "Phone number must contain digits only"
+                    },
+                    "number4": {
+                        required: "You must enter your zip code",
+                        number: "Zip code must contain digits only"
+                    }
+                }
+            });
+
+        });
+    </script>
 </head>
 <body>
 <div id="name"> <!--the header in the left hand corner of the website-->
@@ -32,66 +82,18 @@ updated by TJB on October 19th, October 19th, 2015 at 3:53 PM
 </div>
 <div id="content">
     <div id="subcontent">
+        <p>Hello world</p>
         <form id="numbers" action="form_action.asp">
-            First Number: <input type="number" name="number1"><br>
-            Second Number: <input type="number" name="number2"><br>
-            Third Number: <input type="number" name="number3"><br>
-            Fourth Number: <input type="number" name="number4"><br>
+            First Number: <input type="text" name="number1"><br>
+            Second Number: <input type="text" name="number2"><br>
+            Third Number: <input type="text" name="number3"><br>
+            Fourth Number: <input type="text" name="number4"><br>
         </form>
 
-        <button onclick="myFunction()" name="submit">Display</button>
+        <button onclick="scripts.js/myFunction()" name="submit">Display</button>
         <div id="result"></div>
     </div>
 </div>
-
-
-<script>
-    function myFunction() {
-        var num1 = document.getElementsByName("number1")[0].value;
-        var num2 = document.getElementsByName("number2")[0].value;
-        var num3 = document.getElementsByName("number3")[0].value;
-        var num4 = document.getElementsByName("number4")[0].value;
-        var i;
-        var j;
-        var string = "";
-
-        if (!isNaN(num1) & !isNaN(num2) & !isNaN(num3) & !isNaN(num4) & num1.length != 0 & num2.length != 0 & num3.length != 0 & num4.length != 0) {
-            var array = [num1, num2, num3, num4];
-            string = string + "<br>";
-            string = string + "<table>"; //opening the table
-
-            string = string + "<tr>" + "<th>" + " " + "</th>"; //for (1,1) and starts a row
-            for (j = 0; j < array.length; j++) //for the first row(printing the original four numbers)
-            {
-                string = string + "<th>" + array[j] + "</th>" //prints the first number (i, 1)
-            }
-
-            string = string + "</tr>"; //ends the first row
-
-            for (i = 0; i < array.length; i++) //for each row
-            {
-                string = string + "<tr>"; //starts a row
-                string = string + "<th>" + array[i] + "</th>";
-                for (j = 0; j < array.length; j++) //for each column in each row
-                {
-                    string = string + "<th>" + array[i] * array[j] + "</th>"
-                }
-                string = string + "</tr>"; //ends the row at the end of the iteration
-            }
-            string = string + "</table>"; //closed the table
-
-            document.getElementById("result").innerHTML = string; //puts the content between the div tags
-
-        } else {
-            string = "<br>Whoops! Looks like you didn't enter information correctly! Try entering four numbers.";
-            document.getElementById('result').innerHTML = string    ;
-
-
-        }
-
-
-    }
-</script>
 
 
 </body>

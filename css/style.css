@@ -75,6 +75,22 @@ setting the typeface, color, font size, and setting height and width to auto
     height: auto;
 }
 
+#content
+{
+	width: 100%;
+	display: inline-block;
+	padding-top: 50px;
+}
+
+#subcontent
+{
+	font-family: 'Raleway-Regular', sans-serif;
+	width: 200px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /*
 centering and stretching the black and white image across the width of the home page
 */
