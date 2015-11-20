@@ -108,6 +108,7 @@ function doThings(){
         });
     });
 }
+//This function was created with the help of stack overflow http://stackoverflow.com/questions/23892420/javascript-tab-navigation-issue
 // Wait until the DOM has loaded before querying the document
 $(document).ready(function(){
     $('ul.tabs').each(function(){
