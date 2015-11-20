@@ -24,6 +24,161 @@ src="http://code.jquery.com/jquery-1.11.1.min.js"
 src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"
 src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"
 
+src="//code.jquery.com/jquery-1.10.2.js"
+src="//code.jquery.com/ui/1.11.4/jquery-ui.js"
+
+var totalTabs = 0;
+
+$(function() {
+
+    //slider variables for each number
+    var sliderOpts1 = {
+        max: 99,
+        value: 50,
+        slide: function( event, ui ) {
+            $(".num1").val(ui.value);
+        }
+    };
+
+    var sliderOpts2 = {
+        max: 99,
+        value: 50,
+        slide: function( event, ui ) {
+            $(".num2").val(ui.value);
+        }
+    };
+
+    var sliderOpts3 = {
+        max: 99,
+        value: 50,
+        slide: function( event, ui ) {
+            $(".num3").val(ui.value);
+        }
+    };
+
+    var sliderOpts4 = {
+        max: 99,
+        value: 50,
+        slide: function( event, ui ) {
+            $(".num4").val(ui.value);
+        }
+    };
+
+    //initializing the sliders
+    $( "#slider1" ).slider(sliderOpts1);
+    $( "#slider2" ).slider(sliderOpts2);
+    $( "#slider3" ).slider(sliderOpts3);
+    $( "#slider4" ).slider(sliderOpts4);
+
+});
+function doThings(){
+    $('ul.tabs').each(function(){
+        // For each set of tabs, we want to keep track of
+        // which tab is active and it's associated content
+        var $active, $content, $links = $(this).find('a');
+
+        // If the location.hash matches one of the links, use that as the active tab.
+        // If no match is found, use the first link as the initial active tab.
+        $active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+        $active.addClass('active');
+
+        $content = $($active[0].hash);
+
+        // Hide the remaining content
+        $links.not($active).each(function () {
+            $(this.hash).hide();
+        });
+
+        // Bind the click event handler
+        $(this).on('click', 'a', function(e){
+            // Make the old tab inactive.
+            $active.removeClass('active');
+            $content.hide();
+
+            // Update the variables with the new link and content
+            $active = $(this);
+            $content = $(this.hash);
+
+            // Make the tab active.
+            $active.addClass('active');
+            $content.show();
+
+            // Prevent the anchor's default click action
+            e.preventDefault();
+        });
+    });
+}
+// Wait until the DOM has loaded before querying the document
+$(document).ready(function(){
+    $('ul.tabs').each(function(){
+        // For each set of tabs, we want to keep track of
+        // which tab is active and it's associated content
+        var $active, $content, $links = $(this).find('a');
+
+        // If the location.hash matches one of the links, use that as the active tab.
+        // If no match is found, use the first link as the initial active tab.
+        $active = $($links.filter('[href="'+location.hash+'"]')[0] || $links[0]);
+        $active.addClass('active');
+
+        $content = $($active[0].hash);
+
+        // Hide the remaining content
+        $links.not($active).each(function () {
+            $(this.hash).hide();
+        });
+
+        // Bind the click event handler
+        $(this).on('click', 'a', function(e){
+            // Make the old tab inactive.
+            $active.removeClass('active');
+            $content.hide();
+
+            // Update the variables with the new link and content
+            $active = $(this);
+            $content = $(this.hash);
+
+            // Make the tab active.
+            $active.addClass('active');
+            $content.show();
+
+            // Prevent the anchor's default click action
+            e.preventDefault();
+        });
+    });
+});
+
+function addTab(strTable){
+    //initializing the variables with the element information
+    var one = document.getElementsByName("number1")[0].value;
+    var two = document.getElementsByName("number2")[0].value;
+    var three = document.getElementsByName("number3")[0].value
+    var four = document.getElementsByName("number4")[0].value;
+    //a nice name for the links
+    var linkName = one + " " + two + " " + three +  " " + four;
+    //creating a div id for the links
+    var tab = "tab";
+    totalTabs++;
+    tab = tab + totalTabs;
+
+    //adding a tab
+    $(".tabs").tabs();
+
+    //adding to a list of tabs
+    $(".tabs").append(
+        "<li><a href=" + "#" + tab + ">" + linkName + "</li>"
+    );
+
+    //adding divs after the list
+    $(".tabs").after(
+        "<div class=\"tabStyle\" id=" + "\"" + tab + "\"" + ">" + "<p>" + strTable + "</p>" + "</div>"
+    )
+
+    //refresh the tabs
+    $(".tabs").tabs("refresh");
+}
+
+
+
 //initializes the jQuery validator
 jQuery.validator.setDefaults({
     debug: true,
@@ -43,17 +198,17 @@ $(document).ready(function () {         //if the document is ready
             "number2": {
                 required: true,         //input is required
                 digits: true,           //must be a a digit (aka no negative numbers)
-                maxlength: 2            //can't input a number larger than two
+                maxlength: 2            //can't input a number larger than 100
             },
             "number3": {
                 required: true,         //input is required
                 digits: true,           //must be a a digit (aka no negative numbers)
-                maxlength: 2            //can't input a number larger than two
+                maxlength: 2            //can't input a number larger than 100
             },
             "number4": {
                 required: true,         //input is required
                 digits: true,           //must be a a digit (aka no negative numbers)
-                maxlength: 2            //can't input a number larger than two
+                maxlength: 2            //can't input a number larger than 100
             }
         },
         messages: {                     //the messages that correspond with the broken rules
@@ -81,6 +236,15 @@ $(document).ready(function () {         //if the document is ready
     });
 
 });
+
+function updateSlider(){
+
+    //updating the slider value when the text box is manipulated
+    $("#slider1").slider('value',document.getElementsByName("number1")[0].value);
+    $("#slider2").slider('value',document.getElementsByName("number2")[0].value);
+    $("#slider3").slider('value',document.getElementsByName("number3")[0].value);
+    $("#slider4").slider('value',document.getElementsByName("number4")[0].value);
+}
 
 function myFunction() {
     var num1 = document.getElementsByName("number1")[0].value; //taking in number 1
@@ -116,7 +280,8 @@ function myFunction() {
         }
         string = string + "</table>";                           //closed the table
 
-        document.getElementById("result").innerHTML = string; //puts the content between the div tags
+        //document.getElementById("result").innerHTML = string; //puts the content between the div tags
+        addTab(string);
 
     } else {
         string = "<br>Whoops! Looks like you didn't enter information correctly! Try entering four numbers.";
@@ -125,3 +290,4 @@ function myFunction() {
 
     }
 }
+
