@@ -1,0 +1,138 @@
+@charset "utf-8";
+/*
+Tyler J. Bainbridge
+tyler_bainbridge@student.uml.edu
+91.461 GUI Programming I
+Assignment 5: Formatting Dynamic Text
+
+Tyler Bainbridge, UMass Lowell Computer Science, tbainbr@cs.uml.edu
+Copyright (c) 2015 by Tyler J Bainbridge
+updated by TJB on October 5
+*/
+
+/*importing font faces for the website.*/
+@font-face{
+    font-family: "Raleway-ExtraBold";
+    src: url('Raleway-ExtraBold.ttf');
+}
+@font-face{
+    font-family: "Raleway-Light";
+    src: url('Raleway-Light.ttf');
+}
+
+@font-face{
+    font-family: "Raleway-Thin";
+    src: url('Raleway-Thin.ttf');
+}
+@font-face{
+    font-family: "Raleway-Regular";
+    src: url('Raleway-Regular.ttf');
+}
+
+@font-face{
+    font-family: "Raleway-Bold";
+    src: url('Raleway-Bold.ttf');
+}
+
+@font-face{
+    font-family: "Raleway-Semibold";
+    src: url('Raleway-SemiBold.ttf');
+}
+@font-face{
+    font-family: "Raleway-Heavy";
+    src: url('Raleway-Heavy.ttf');
+}
+#content{
+    color: #1F1F1F; /*dark grey*/
+    padding-top: 50px;
+    display: inline-block;
+}
+
+/*sizing the image*/
+#text #image img{
+    width: 910px;
+    margin: auto;
+    padding: 10px;
+}
+/*the font and size of the title*/
+.title{
+    text-align: center;
+    font-family: 'Raleway-Heavy', sans-serif;
+    font-size: 50px;
+}
+/*the font of the author div*/
+.author{
+    font-family: 'Raleway-Bold', sans-serif;
+}
+#content p{
+    font-family: 'Raleway-Regular', sans-serif;
+    display: block;
+}
+/*centering the text div*/
+#content #text
+{
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+/*
+adjusting the margin to display the logo slightly off the edge of the page top and bottom
+setting the typeface, color, font size, and setting height and width to auto
+*/
+#name
+{
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'Raleway-ExtraBold', sans-serif;
+    color: #1F1F1F; /*dark grey*/
+    font-size: 50px;
+    float: left;
+    width: auto;
+    height: auto;
+}
+
+/*
+holds the menu in the upper right of the page slightly off the edges
+*/
+#header {
+    margin-top: 10px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    float: right;
+    width: auto;
+    height: auto;
+}
+
+/*
+the code below makes the menu display in a line rather than one on top of another
+*/
+#menu{
+    float: right;
+    display: inline;
+    text-align: right;
+}
+
+#menu li {
+    margin-top: 0px;
+    display: inline;
+    padding: 30px;
+}
+
+#menu li a{
+    font-family: 'Raleway-Semibold', sans-serif;
+    color: #1F1F1F;/*dark grey*/
+    font-size: 20px;
+    width: auto;
+    height:20px;
+    text-decoration: none; /*get's rid of the underline*/
+}
+
+/*when hovering over a link it changes to a slightly lighter shade*/
+#menu li a:hover {
+    font-family: 'Raleway-Semibold', sans-serif;
+    color: #6B6363;
+    text-decoration: none;
+}
