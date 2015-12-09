@@ -12,15 +12,59 @@ updated by TJB on October 19th, October 19th, 2015 at 3:53 PM
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/assignment6.css">
+    <script src="javascript/scripts.js" type="text/javascript"></script>
     <meta charset="UTF-8">
-    <title>JQuery Validation</title>
-
+    <title>javascript stuff</title>
     <!-- Load jQuery and jQuery-Validate scripts -->
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
     <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
-    <script src="javascript/scripts.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
 
+            //validation rules
+            $("#numbers").validate({
+                rules: {
+                    "number1": {
+                        required: true,
+                        digits: true
+                    },
+                    "number2": {
+                        required: true,
+                        digits: true
+                    },
+                    "number3": {
+                        required: true,
+                        digits: true
+                    },
+                    "number4": {
+                        required: true,
+                        digits: true
+                    }
+                },
+                messages: {
+                    "number1": {
+                        required: "ERROR: Missing first number",
+                        digits : "ERROR: Not a positive integer value"
+                    },
+                    "number2": {
+                        required: "ERROR: Missing second number",
+                        digits : "ERROR: Not a positive integer value"
+                    },
+                    "number3": {
+                        required: "ERROR: Missing third number",
+                        digits : "ERROR: Not a positive integer value"
+                    },
+                    "number4": {
+                        required: "ERROR: Missing fourth number",
+                        digits: "ERROR: Not a positive integer value"
+                    }
+                }
+            });
+
+        });
+
+    </script>
 </head>
 <body>
 <div id="name"> <!--the header in the left hand corner of the website-->
@@ -37,20 +81,19 @@ updated by TJB on October 19th, October 19th, 2015 at 3:53 PM
         </ul>
     </div>
 </div>
-<div id="content"> <!--holds the subcontent div (for centering)-->
-    <div id="subcontent"> <!--centering the table and related text-->
-        <div id="form">
-            <h1>Multiplication Table</h1>
-            <p>Please enter four integers you would like to create a multiplication table with.</p>
-            <form id="numbers" action="form_action.asp"> <!--a form which takes number inputs-->
-                First Number: <input type="text" name="number1"><br>
-                Second Number: <input type="text" name="number2"><br>
-                Third Number: <input type="text" name="number3"><br>
-                Fourth Number: <input type="text" name="number4"><br>
-            </form>
-            <button onclick="scripts.js/myFunction()" name="submit">Display</button> <!--calls "myFunction()" which makes the table-->
-        </div>
-        <div id="result"></div> <!--for printing the table-->
+<div id="content">
+    <div id="subcontent">
+        <h1>Multiplication Table</h1>
+        <p>Please enter four integers you would like to create a multiplication table with.</p>
+        <form id="numbers" action="form_action.asp">
+            First Number: <input type="text" name="number1"><br>
+            Second Number: <input type="text" name="number2"><br>
+            Third Number: <input type="text" name="number3"><br>
+            Fourth Number: <input type="text" name="number4"><br>
+        </form>
+
+        <button onclick="scripts.js/myFunction()" name="submit">Display</button>
+        <div id="result"></div>
     </div>
 </div>
 

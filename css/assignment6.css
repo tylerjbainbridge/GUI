@@ -7,7 +7,7 @@ Assignment 6: Javascript
 
 Tyler Bainbridge, UMass Lowell Computer Science, tbainbr@cs.uml.edu
 Copyright (c) 2015 by Tyler J Bainbridge
-updated by TJB on November 19th, 2015 at 7:45 PM
+updated by TJB on October 19th, October 19th, 2015 at 7:45 PM
 */
 
 /*importing font faces for the website.*/
@@ -43,13 +43,9 @@ updated by TJB on November 19th, 2015 at 7:45 PM
     src: url('Raleway-Heavy.ttf');
 }
 
-/*
-highlights the text box with an error red
-*/
-
 select.error, textarea.error, input.error {
 
-     border:1px solid red;
+    border:1px solid red;
 }
 
 
@@ -65,14 +61,9 @@ select.error, textarea.error, input.error {
     padding-top: 2px;
     padding-bottom: 2px;
 }
-#form{
-    float: right;
-    display: block;
-}
 
 /*centering the table*/
 #result{
-    float: right;
     width: auto ;
     display: block;
     margin-left: auto;
@@ -115,21 +106,6 @@ button[name=submit]{
     font-family: 'Raleway-Regular', sans-serif;
 }
 
-/*styling the tabs*/
-.tabStyle{
-
-    font-family: 'Raleway-Regular', sans-serif;
-    background: transparent;
-    border: none;
-    text-align: center;
-}
-
-.tabs{
-    text-align: center;
-    background: transparent;
-    border: none;
-    text-align: center;
-}
 
 /*
 adjusting the margin to display the logo slightly off the edge of the page top and bottom
@@ -147,8 +123,6 @@ setting the typeface, color, font size, and setting height and width to auto
     width: auto;
     height: auto;
 }
-
-
 
 /*
 holds the menu in the upper right of the page slightly off the edges
@@ -193,4 +167,3 @@ the code below makes the menu display in a line rather than one on top of anothe
     color: #6B6363;
     text-decoration: none;
 }
-
